@@ -1,0 +1,7 @@
+{
+  "name": "phi",
+  "plugins": [
+    "./plugins/phi.js"
+  ]
+}
+

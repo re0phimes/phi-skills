@@ -1,0 +1,14 @@
+{
+  "name": "phi",
+  "displayName": "Phi",
+  "description": "Unified orchestration layer over superpowers, everything-claude-code, and local private workflows",
+  "version": "0.1.0",
+  "author": {
+    "name": "re0ph"
+  },
+  "homepage": "https://example.invalid/phi",
+  "license": "UNLICENSED",
+  "skills": "../skills/",
+  "commands": "../commands/",
+  "hooks": "../hooks/hooks.json"
+}

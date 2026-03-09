@@ -1,0 +1,39 @@
+{
+  "name": "phi",
+  "owner": {
+    "name": "re0ph",
+    "email": "re0ph@example.com"
+  },
+  "metadata": {
+    "description": "Unified orchestration layer over superpowers, ECC, and private skills"
+  },
+  "plugins": [
+    {
+      "name": "phi",
+      "source": "./",
+      "description": "Cross-host phi orchestration layer with unified phi-* entrypoints",
+      "author": {
+        "name": "re0ph"
+      },
+      "homepage": "https://github.com/re0phimes/phi",
+      "repository": "https://github.com/re0phimes/phi",
+      "license": "MIT",
+      "keywords": [
+        "skills",
+        "workflow",
+        "orchestration",
+        "claude",
+        "codex",
+        "cursor",
+        "opencode"
+      ],
+      "category": "workflow",
+      "tags": [
+        "skills",
+        "workflow",
+        "orchestration",
+        "cross-host"
+      ]
+    }
+  ]
+}

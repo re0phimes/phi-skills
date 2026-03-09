@@ -1,0 +1,101 @@
+{
+  "phi-brainstorming": {
+    "primarySource": "superpowers:brainstorming",
+    "secondarySources": ["ecc:frontend-patterns", "ecc:backend-patterns", "ecc:api-design"],
+    "hostSupport": ["codex", "claude", "cursor", "opencode"],
+    "category": "workflow",
+    "triggerAreas": ["design", "requirements", "feature-ideation"]
+  },
+  "phi-planning": {
+    "primarySource": "superpowers:writing-plans",
+    "secondarySources": ["ecc:frontend-patterns", "ecc:backend-patterns", "ecc:e2e-testing"],
+    "hostSupport": ["codex", "claude", "cursor", "opencode"],
+    "category": "workflow",
+    "triggerAreas": ["implementation-plan", "task-breakdown"]
+  },
+  "phi-debugging": {
+    "primarySource": "superpowers:systematic-debugging",
+    "secondarySources": ["ecc:frontend-patterns", "ecc:backend-patterns", "ecc:python-patterns", "ecc:postgres-patterns"],
+    "hostSupport": ["codex", "claude", "cursor", "opencode"],
+    "category": "workflow",
+    "triggerAreas": ["bug", "build-failure", "runtime-issue"]
+  },
+  "phi-tdd": {
+    "primarySource": "superpowers:test-driven-development",
+    "secondarySources": ["ecc:python-testing", "ecc:golang-testing", "ecc:springboot-tdd", "ecc:e2e-testing"],
+    "hostSupport": ["codex", "claude", "cursor", "opencode"],
+    "category": "workflow",
+    "triggerAreas": ["feature-implementation", "bugfix", "refactor"]
+  },
+  "phi-verify": {
+    "primarySource": "superpowers:verification-before-completion",
+    "secondarySources": ["ecc:e2e-testing", "ecc:security-review", "ecc:security-scan"],
+    "hostSupport": ["codex", "claude", "cursor", "opencode"],
+    "category": "workflow",
+    "triggerAreas": ["verification", "release-readiness", "completion"]
+  },
+  "phi-execute": {
+    "primarySource": "superpowers:subagent-driven-development",
+    "secondarySources": ["ecc:agents", "ecc:commands"],
+    "hostSupport": ["codex", "claude", "cursor", "opencode"],
+    "category": "workflow",
+    "triggerAreas": ["implementation", "task-execution"]
+  },
+  "phi-parallel": {
+    "primarySource": "superpowers:dispatching-parallel-agents",
+    "secondarySources": ["ecc:agents"],
+    "hostSupport": ["codex", "claude", "cursor", "opencode"],
+    "category": "workflow",
+    "triggerAreas": ["parallel-work", "independent-subtasks"]
+  },
+  "phi-review": {
+    "primarySource": "superpowers:requesting-code-review",
+    "secondarySources": ["superpowers:receiving-code-review", "ecc:security-review"],
+    "hostSupport": ["codex", "claude", "cursor", "opencode"],
+    "category": "workflow",
+    "triggerAreas": ["code-review", "handoff", "quality-review"]
+  },
+  "phi-frontend": {
+    "primarySource": "phi-brainstorming",
+    "secondarySources": ["ecc:frontend-patterns", "ecc:coding-standards", "ecc:e2e-testing"],
+    "hostSupport": ["codex", "claude", "cursor", "opencode"],
+    "category": "domain",
+    "triggerAreas": ["ui", "react", "nextjs", "layout", "responsive-design"]
+  },
+  "phi-backend": {
+    "primarySource": "phi-brainstorming",
+    "secondarySources": ["ecc:backend-patterns", "ecc:api-design"],
+    "hostSupport": ["codex", "claude", "cursor", "opencode"],
+    "category": "domain",
+    "triggerAreas": ["api", "server", "service", "route"]
+  },
+  "phi-python": {
+    "primarySource": "phi-brainstorming",
+    "secondarySources": ["ecc:python-patterns", "ecc:python-testing"],
+    "hostSupport": ["codex", "claude", "cursor", "opencode"],
+    "category": "domain",
+    "triggerAreas": ["python", "pytest", "cli", "automation"]
+  },
+  "phi-java": {
+    "primarySource": "phi-brainstorming",
+    "secondarySources": ["ecc:java-coding-standards", "ecc:springboot-patterns", "ecc:springboot-tdd", "ecc:springboot-security"],
+    "hostSupport": ["codex", "claude", "cursor", "opencode"],
+    "category": "domain",
+    "triggerAreas": ["java", "spring", "springboot"]
+  },
+  "phi-db": {
+    "primarySource": "phi-brainstorming",
+    "secondarySources": ["ecc:postgres-patterns", "ecc:clickhouse-io", "ecc:jpa-patterns"],
+    "hostSupport": ["codex", "claude", "cursor", "opencode"],
+    "category": "domain",
+    "triggerAreas": ["database", "postgres", "clickhouse", "schema", "query"]
+  },
+  "phi-faq": {
+    "primarySource": "phi-local:faq-generator",
+    "secondarySources": ["phi-local:faq-grounded-review", "phi-local:faq-judge", "phi-verify"],
+    "hostSupport": ["codex", "claude", "cursor", "opencode"],
+    "category": "domain",
+    "triggerAreas": ["faq", "qa-generation", "grounded-review", "knowledge-extraction"]
+  }
+}
+

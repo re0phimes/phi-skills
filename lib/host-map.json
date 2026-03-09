@@ -1,0 +1,24 @@
+{
+  "codex": {
+    "adapterPath": ".codex",
+    "skillsPath": "skills",
+    "bootstrapFile": ".codex/INSTALL.md"
+  },
+  "claude": {
+    "adapterPath": ".claude-plugin",
+    "skillsPath": "skills",
+    "manifestFile": ".claude-plugin/plugin.json"
+  },
+  "cursor": {
+    "adapterPath": ".cursor-plugin",
+    "skillsPath": "skills",
+    "manifestFile": ".cursor-plugin/plugin.json"
+  },
+  "opencode": {
+    "adapterPath": ".opencode",
+    "skillsPath": "skills",
+    "manifestFile": ".opencode/opencode.json",
+    "pluginFile": ".opencode/plugins/phi.js"
+  }
+}
+
