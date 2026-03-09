@@ -51,9 +51,71 @@ Only one source owns a stage at a time.
 - `.cursor-plugin/` Cursor packaging
 - `.opencode/` OpenCode packaging
 
+## Installation
+
+### Codex (Recommended, especially on Linux)
+
+For Codex, the simplest setup is to clone this repository and symlink each `phi-*` skill into `~/.codex/skills/`. This works well on Linux servers and headless machines.
+
+```bash
+git clone https://github.com/re0phimes/phi-skills.git ~/phi-skills
+
+mkdir -p ~/.codex/skills
+
+for d in ~/phi-skills/skills/*; do
+  name="$(basename "$d")"
+  rm -rf "$HOME/.codex/skills/$name"
+  ln -s "$d" "$HOME/.codex/skills/$name"
+done
+```
+
+Optional: mark the repository as trusted in `~/.codex/config.toml`:
+
+```toml
+[projects."/home/YOUR_USER/phi-skills"]
+trust_level = "trusted"
+```
+
+To verify the installation:
+
+```bash
+ls -1 ~/.codex/skills | grep '^phi-'
+```
+
+To update later:
+
+```bash
+cd ~/phi-skills
+git pull
+```
+
+### Claude Code
+
+For Claude Code, use the plugin marketplace flow instead of manual skill linking.
+
+Add this repository as a marketplace source, then enable the plugin:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "phi": {
+      "source": {
+        "source": "github",
+        "repo": "re0phimes/phi-skills"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "phi@phi": true
+  }
+}
+```
+
+If you prefer the command flow in Claude Code, the equivalent idea is to add the marketplace source first and then install/enable `phi@phi`.
+
 ## Quickstart
 
-1. Install or point your host to this repository's shared `skills/` directory.
+1. Install `phi` through your host-specific flow.
 2. Keep `superpowers` and ECC available as upstream sources.
 3. Prefer `phi-*` for daily work instead of calling upstream skills directly.
 4. Extend `phi` only when a workflow is stable and worth preserving locally.
