@@ -264,6 +264,56 @@ Result:
 
 - `with_skill` showed a routing win through stronger stage control
 
+### `phi-planning`
+
+Prompt used:
+
+`The design is approved. Break the FAQ review queue into an implementation plan with file targets, validation, and handoff.`
+
+Observed baseline pattern:
+
+- produced a usable implementation plan
+- included validation and a next-step handoff
+- did not explicitly identify planning as the current stage
+- gave a softer handoff that did not make phi stage ownership very visible
+
+Observed `with_skill` pattern:
+
+- explicitly identified the work as planning-stage work
+- restated the approved goal before decomposing the work
+- produced ordered steps with concrete file targets and validation commands
+- named `phi-execute` as the next owner, with `phi-debugging` and `phi-verify` as boundary conditions
+
+Result:
+
+- `with_skill` showed a routing win through clearer stage declaration and stronger next-hop visibility
+
+### `phi-tdd`
+
+Prompt used:
+
+`Add CSV export support to the Python CLI. I want a strict test-first flow.`
+
+Observed baseline pattern:
+
+- already started with failing tests
+- kept red-green-refactor reasonably explicit
+- included a verification-oriented handoff at the end
+- did not make phi ownership or `phi-verify` routing explicit
+
+Observed `with_skill` pattern:
+
+- explicitly framed the task as `phi-tdd` behavior-change work
+- started with one failing test and confirmed the failure reason
+- preserved a tighter minimum-change-until-green flow
+- handed off explicitly to `phi-verify` for final completion checks
+
+Result:
+
+- `with_skill` showed a narrower routing win
+- the main improvement was phi-specific routing visibility, not a large improvement in raw TDD discipline
+- this case suggests generic TDD behavior may already be strong even without phi, so future phi-tdd upgrades should optimize for orchestration clarity rather than more TDD prose
+
 ### `phi-verify`
 
 Prompt used:
