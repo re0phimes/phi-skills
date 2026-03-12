@@ -1,17 +1,17 @@
 {
-  "name": "phi",
+  "name": "phi-skills",
   "owner": {
     "name": "re0ph",
     "email": "re0ph@example.com"
   },
   "metadata": {
-    "description": "Unified orchestration layer over superpowers, ECC, and private skills"
+    "description": "Multi-series marketplace for the phi orchestration series and standalone FAQ skills"
   },
   "plugins": [
     {
       "name": "phi",
-      "source": "./",
-      "description": "Cross-host phi orchestration layer with unified phi-* entrypoints",
+      "source": "../packages/phi",
+      "description": "Cross-host phi entrypoint series scoped to workflow orchestration and domain routing",
       "author": {
         "name": "re0ph"
       },
@@ -32,7 +32,31 @@
         "skills",
         "workflow",
         "orchestration",
-        "cross-host"
+        "phi-series"
+      ]
+    },
+    {
+      "name": "faq",
+      "source": "../packages/faq",
+      "description": "Standalone FAQ skills for QA generation, grounded review, and judging",
+      "author": {
+        "name": "re0ph"
+      },
+      "homepage": "https://github.com/re0phimes/phi-skills",
+      "repository": "https://github.com/re0phimes/phi-skills",
+      "license": "MIT",
+      "keywords": [
+        "skills",
+        "faq",
+        "grounded-review",
+        "knowledge-extraction"
+      ],
+      "category": "knowledge",
+      "tags": [
+        "skills",
+        "faq",
+        "qa-generation",
+        "faq-series"
       ]
     }
   ]

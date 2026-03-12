@@ -1,13 +1,12 @@
 {
   "name": "phi",
   "displayName": "Phi",
-  "description": "Default root plugin for the phi orchestration series",
+  "description": "Phi orchestration entrypoint series for workflow and domain routing",
   "version": "0.1.0",
   "author": {
     "name": "re0ph"
   },
   "homepage": "https://github.com/re0phimes/phi-skills",
   "license": "MIT",
-  "skills": "../skills/phi/",
-  "hooks": "../shared/hooks/hooks.json"
+  "skills": "../../../skills/phi/"
 }

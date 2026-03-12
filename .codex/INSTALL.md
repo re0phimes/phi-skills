@@ -2,16 +2,36 @@
 
 ## Goal
 
-Expose the shared `phi` skills directory to Codex while keeping host-specific setup minimal.
+Expose the repository skill series to Codex while keeping setup minimal.
 
 ## Recommended Setup
 
 1. Make this repository available locally.
-2. Point Codex skill discovery at the shared `skills/` directory.
-3. Keep `superpowers`, ECC, and your private skills available as upstream sources.
-4. Prefer `phi-*` entrypoints for common flows.
+2. Choose one series: `phi` or `faq`.
+3. Symlink only the selected series into `~/.codex/skills`.
+4. Keep `superpowers` and ECC available as upstream sources when using `phi`.
+
+### `phi` series
+
+```bash
+for d in ~/phi-skills/skills/phi/*; do
+  name="$(basename "$d")"
+  rm -rf "$HOME/.codex/skills/$name"
+  ln -s "$d" "$HOME/.codex/skills/$name"
+done
+```
+
+### `faq` series
+
+```bash
+for d in ~/phi-skills/skills/faq/*; do
+  name="$(basename "$d")"
+  rm -rf "$HOME/.codex/skills/$name"
+  ln -s "$d" "$HOME/.codex/skills/$name"
+done
+```
 
 ## Entrypoint Rule
 
-Use `phi-*` first. Treat direct upstream invocation as an advanced escape hatch, not the default.
+Use `phi-*` first when the `phi` series is installed. Use `faq-*` directly when you install the standalone FAQ series.
 

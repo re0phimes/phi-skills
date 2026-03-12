@@ -1,0 +1,36 @@
+{
+  "name": "faq",
+  "owner": {
+    "name": "re0ph",
+    "email": "re0ph@example.com"
+  },
+  "metadata": {
+    "description": "Standalone FAQ generation, grounded review, and QA judging skill series"
+  },
+  "plugins": [
+    {
+      "name": "faq",
+      "source": "./",
+      "description": "Standalone FAQ skills scoped to generation, grounded review, and quality judging",
+      "author": {
+        "name": "re0ph"
+      },
+      "homepage": "https://github.com/re0phimes/phi-skills",
+      "repository": "https://github.com/re0phimes/phi-skills",
+      "license": "MIT",
+      "keywords": [
+        "skills",
+        "faq",
+        "grounded-review",
+        "knowledge-extraction"
+      ],
+      "category": "knowledge",
+      "tags": [
+        "skills",
+        "faq",
+        "qa-generation",
+        "faq-series"
+      ]
+    }
+  ]
+}

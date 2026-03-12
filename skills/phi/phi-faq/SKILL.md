@@ -1,6 +1,6 @@
 ---
 name: phi-faq
-description: Use when the task is FAQ generation, grounded review, QA judging, or knowledge extraction and phi should orchestrate the private FAQ workflow.
+description: Use when the task is FAQ generation, grounded review, QA judging, or knowledge extraction and phi should orchestrate the repository FAQ workflow.
 ---
 
 # Phi FAQ
@@ -10,18 +10,18 @@ description: Use when the task is FAQ generation, grounded review, QA judging, o
 Default path:
 
 1. `phi-brainstorming` when the workflow or output standard is still unclear
-2. local FAQ generation and review skills
+2. repository FAQ generation and review skills
 3. `phi-verify`
 
 ## Primary Sources
 
-- Domain owner: local `faq-generator`
-- Review owner: local `faq-grounded-review`
+- Domain owner: `faq-series:faq-generator`
+- Review owner: `faq-series:faq-grounded-review`
 
 ## Secondary Sources
 
-- local `faq-judge`
-- `phi-local` document conventions
+- `faq-series:faq-judge`
+- repository-local document conventions
 - `phi-verify` for final readiness checks
 
 ## Trigger Areas

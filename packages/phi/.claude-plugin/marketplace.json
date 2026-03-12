@@ -1,0 +1,36 @@
+{
+  "name": "phi",
+  "owner": {
+    "name": "re0ph",
+    "email": "re0ph@example.com"
+  },
+  "metadata": {
+    "description": "Phi orchestration entrypoint series for workflow and domain routing"
+  },
+  "plugins": [
+    {
+      "name": "phi",
+      "source": "./",
+      "description": "Cross-host phi entrypoint series scoped to orchestration and domain routing",
+      "author": {
+        "name": "re0ph"
+      },
+      "homepage": "https://github.com/re0phimes/phi-skills",
+      "repository": "https://github.com/re0phimes/phi-skills",
+      "license": "MIT",
+      "keywords": [
+        "skills",
+        "workflow",
+        "orchestration",
+        "phi"
+      ],
+      "category": "workflow",
+      "tags": [
+        "skills",
+        "workflow",
+        "orchestration",
+        "phi-series"
+      ]
+    }
+  ]
+}

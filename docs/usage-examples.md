@@ -34,6 +34,6 @@ Prompt:
 
 Expected orchestration:
 
-1. local FAQ skills perform generation and review
+1. repository FAQ series skills perform generation and review
 2. `phi-verify` confirms the output is ready for use
 

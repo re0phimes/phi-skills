@@ -1,24 +1,51 @@
 {
   "codex": {
     "adapterPath": ".codex",
-    "skillsPath": "skills",
-    "bootstrapFile": ".codex/INSTALL.md"
+    "seriesPaths": {
+      "phi": "skills/phi",
+      "faq": "skills/faq"
+    },
+    "bootstrapFiles": {
+      "phi": "packages/phi/.codex/INSTALL.md",
+      "faq": "packages/faq/.codex/INSTALL.md"
+    }
   },
   "claude": {
     "adapterPath": ".claude-plugin",
-    "skillsPath": "skills",
-    "manifestFile": ".claude-plugin/plugin.json"
+    "seriesPaths": {
+      "phi": "skills/phi",
+      "faq": "skills/faq"
+    },
+    "manifestFiles": {
+      "phi": "packages/phi/.claude-plugin/plugin.json",
+      "faq": "packages/faq/.claude-plugin/plugin.json"
+    }
   },
   "cursor": {
     "adapterPath": ".cursor-plugin",
-    "skillsPath": "skills",
-    "manifestFile": ".cursor-plugin/plugin.json"
+    "seriesPaths": {
+      "phi": "skills/phi",
+      "faq": "skills/faq"
+    },
+    "manifestFiles": {
+      "phi": "packages/phi/.cursor-plugin/plugin.json",
+      "faq": "packages/faq/.cursor-plugin/plugin.json"
+    }
   },
   "opencode": {
     "adapterPath": ".opencode",
-    "skillsPath": "skills",
-    "manifestFile": ".opencode/opencode.json",
-    "pluginFile": ".opencode/plugins/phi.js"
+    "seriesPaths": {
+      "phi": "skills/phi",
+      "faq": "skills/faq"
+    },
+    "manifestFiles": {
+      "phi": "packages/phi/.opencode/opencode.json",
+      "faq": "packages/faq/.opencode/opencode.json"
+    },
+    "pluginFiles": {
+      "phi": "packages/phi/.opencode/plugins/phi.js",
+      "faq": "packages/faq/.opencode/plugins/faq.js"
+    }
   }
 }
 

@@ -1,0 +1,6 @@
+{
+  "name": "faq",
+  "plugins": [
+    "./plugins/faq.js"
+  ]
+}

@@ -1,15 +1,16 @@
 # Phi Claude Plugin
 
-This adapter exposes the shared `phi` skill set to Claude-compatible environments.
+This repository exposes multiple Claude-compatible plugin packages.
 
 ## Intent
 
-- surface `phi-*` as the preferred user entrypoints
-- keep orchestration logic in the shared repository
-- avoid duplicating business logic inside the adapter layer
+- keep package manifests thin and series-scoped
+- expose `phi` as the default compatibility plugin at the root
+- expose `phi` and `faq` as separate installable packages under `packages/`
 
 ## Notes
 
-- `skills/` remains the shared source of truth
-- `commands/` and `hooks/` are placeholders for future expansion
+- `skills/phi/` and `skills/faq/` are the series roots
+- `.claude-plugin/marketplace.json` advertises both installable series
+- shared hooks now live under `shared/hooks/`
 

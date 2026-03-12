@@ -91,8 +91,8 @@
     "triggerAreas": ["database", "postgres", "clickhouse", "schema", "query"]
   },
   "phi-faq": {
-    "primarySource": "phi-local:faq-generator",
-    "secondarySources": ["phi-local:faq-grounded-review", "phi-local:faq-judge", "phi-verify"],
+    "primarySource": "faq-series:faq-generator",
+    "secondarySources": ["faq-series:faq-grounded-review", "faq-series:faq-judge", "phi-verify"],
     "hostSupport": ["codex", "claude", "cursor", "opencode"],
     "category": "domain",
     "triggerAreas": ["faq", "qa-generation", "grounded-review", "knowledge-extraction"]

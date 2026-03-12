@@ -1,0 +1,79 @@
+{
+  "name": "phi-skills",
+  "version": 1,
+  "repository": {
+    "owner": "re0phimes",
+    "name": "phi-skills"
+  },
+  "defaultSeries": "phi",
+  "series": {
+    "phi": {
+      "label": "Phi",
+      "description": "Phi orchestration entrypoint series for workflow and domain routing",
+      "skillsPath": "skills/phi",
+      "packagePath": "packages/phi",
+      "entryPrefixes": [
+        "phi-"
+      ],
+      "hosts": {
+        "codex": {
+          "installDoc": "packages/phi/.codex/INSTALL.md"
+        },
+        "claude": {
+          "pluginName": "phi",
+          "marketplaceManifest": ".claude-plugin/marketplace.json",
+          "packageManifest": "packages/phi/.claude-plugin/plugin.json"
+        },
+        "cursor": {
+          "pluginName": "phi",
+          "packageManifest": "packages/phi/.cursor-plugin/plugin.json"
+        },
+        "opencode": {
+          "pluginName": "phi",
+          "packageManifest": "packages/phi/.opencode/opencode.json"
+        }
+      }
+    },
+    "faq": {
+      "label": "FAQ",
+      "description": "Standalone FAQ generation, grounded review, and QA judging skill series",
+      "skillsPath": "skills/faq",
+      "packagePath": "packages/faq",
+      "entryPrefixes": [
+        "faq-"
+      ],
+      "hosts": {
+        "codex": {
+          "installDoc": "packages/faq/.codex/INSTALL.md"
+        },
+        "claude": {
+          "pluginName": "faq",
+          "marketplaceManifest": ".claude-plugin/marketplace.json",
+          "packageManifest": "packages/faq/.claude-plugin/plugin.json"
+        },
+        "cursor": {
+          "pluginName": "faq",
+          "packageManifest": "packages/faq/.cursor-plugin/plugin.json"
+        },
+        "opencode": {
+          "pluginName": "faq",
+          "packageManifest": "packages/faq/.opencode/opencode.json"
+        }
+      }
+    }
+  },
+  "shared": {
+    "hooksPath": "shared/hooks",
+    "scriptsPath": "shared/scripts",
+    "templatesPath": "shared/templates",
+    "componentsPath": "shared/components"
+  },
+  "compatibility": {
+    "rootPhiRuntime": {
+      "pluginManifest": ".claude-plugin/plugin.json",
+      "cursorManifest": ".cursor-plugin/plugin.json",
+      "opencodePlugin": ".opencode/plugins/phi.js",
+      "codexInstallDoc": ".codex/INSTALL.md"
+    }
+  }
+}

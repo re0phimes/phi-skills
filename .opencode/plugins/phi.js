@@ -1,8 +1,7 @@
 /**
  * Phi plugin for OpenCode-style environments.
  *
- * This adapter intentionally stays thin and delegates orchestration policy
- * to the shared repository docs and skill definitions.
+ * The root adapter stays on the phi series for compatibility.
  */
 
 import path from 'path';
@@ -11,7 +10,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export const PhiPlugin = async () => {
-  const skillsDir = path.resolve(__dirname, '../../skills');
+  const skillsDir = path.resolve(__dirname, '../../skills/phi');
 
   return {
     name: 'phi',
@@ -20,7 +19,7 @@ export const PhiPlugin = async () => {
       'Prefer phi-* entrypoints.',
       'Route workflow-stage control to superpowers.',
       'Route domain specialization to everything-claude-code.',
-      'Use local private skills for product-specific workflows.'
+      'Install the faq series separately when you want standalone faq-* skills.'
     ]
   };
 };

@@ -1,8 +1,8 @@
-# Phi Codex Adapter
+# Phi Skills Codex Adapter
 
-The Codex adapter is intentionally thin.
+The root Codex adapter documents series-based installation.
 
-- shared skill logic lives in `skills/`
+- series-specific skills live in `skills/phi/` and `skills/faq/`
+- series-specific install docs live in `packages/phi/.codex/` and `packages/faq/.codex/`
 - routing policy lives in `rules/` and `lib/`
-- Codex-specific setup should stay minimal and declarative
 

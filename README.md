@@ -1,104 +1,96 @@
-# Phi
+# Phi Skills
 
-`phi` is a cross-host orchestration layer for agent skills and plugins.
+`phi-skills` is a single repository that now publishes multiple installable skill series.
 
-Instead of choosing between `superpowers`, `everything-claude-code` (ECC), and local private skills on every task, users interact through a unified `phi-*` entrypoint model.
+Instead of exposing one monolithic skill directory, the repository separates:
+
+- the `phi` orchestration entrypoint series
+- the `faq` workflow series
+- a shared support layer for hooks, scripts, templates, and reusable host components
 
 ## Goals
 
-- Provide one stable skill namespace across `Codex`, `Claude`, `Cursor`, and `OpenCode`
+- Provide stable installable skill series across `Codex`, `Claude`, `Cursor`, and `OpenCode`
 - Route workflow-stage control to `superpowers`
 - Route domain specialization to `everything-claude-code`
-- Preserve private workflows under the same `phi-*` mental model
-- Reduce direct, isolated upstream invocation for common flows
+- Preserve repository-owned workflows under a clear installation model
+- Leave room for future shared hooks and support components without turning them into fake skill series
+
+## Series
+
+### `phi`
+
+- Orchestration entrypoints such as `phi-brainstorming`, `phi-planning`, `phi-debugging`, and `phi-verify`
+- Domain entrypoints such as `phi-frontend`, `phi-backend`, `phi-python`, `phi-java`, `phi-db`, and `phi-faq`
+- Skills live in `skills/phi/`
+- Package manifests live in `packages/phi/`
+
+### `faq`
+
+- Concrete FAQ workflow skills: `faq-generator`, `faq-grounded-review`, `faq-judge`
+- Skills live in `skills/faq/`
+- Package manifests live in `packages/faq/`
+
+### `shared`
+
+- Non-series support layer for hooks, scripts, templates, and reusable components
+- Support assets live in `shared/`
 
 ## Operating Model
 
-- `phi-*` is the preferred entrypoint layer
-- `superpowers` is the workflow-discipline source
-- `ECC` is the domain-expansion source
-- `phi-local` is the private workflow source
+- `phi-*` remains the preferred orchestration entrypoint layer
+- `faq` contains the concrete FAQ production workflow skills
+- `superpowers` remains the workflow-discipline source
+- `everything-claude-code` (ECC) remains the domain-expansion source
+- `shared/` holds support infrastructure rather than installable skills
 
 Only one source owns a stage at a time.
 
-## First Batch Entrypoints
-
-### Workflow
-- `phi-brainstorming`
-- `phi-planning`
-- `phi-debugging`
-- `phi-tdd`
-- `phi-verify`
-- `phi-execute`
-- `phi-parallel`
-- `phi-review`
-
-### Domain
-- `phi-frontend`
-- `phi-backend`
-- `phi-python`
-- `phi-java`
-- `phi-db`
-- `phi-faq`
-
 ## Repository Layout
 
-- `skills/` user-facing `phi-*` skills
+- `skills/phi/` user-facing `phi-*` skills
+- `skills/faq/` concrete FAQ workflow skills
+- `packages/phi/` host packaging for the `phi` series
+- `packages/faq/` host packaging for the `faq` series
+- `shared/` hooks, templates, scripts, and reusable support assets
 - `rules/` orchestration and ownership policy
 - `lib/` routing metadata and host maps
-- `.claude-plugin/` Claude packaging
-- `.codex/` Codex packaging
-- `.cursor-plugin/` Cursor packaging
-- `.opencode/` OpenCode packaging
 
 ## Installation
 
-### Codex (Recommended, especially on Linux)
+Install one series at a time.
 
-For Codex, the simplest setup is to clone this repository and symlink each `phi-*` skill into `~/.codex/skills/`. This works well on Linux servers and headless machines.
+- `phi` installation details: `packages/phi/`
+- `faq` installation details: `packages/faq/`
 
-```bash
-git clone https://github.com/re0phimes/phi-skills.git ~/phi-skills
+Each package contains host-specific manifests or install notes for Codex, Claude-compatible hosts, Cursor, and OpenCode.
 
-mkdir -p ~/.codex/skills
+### Codex
 
-for d in ~/phi-skills/skills/*; do
-  name="$(basename "$d")"
-  rm -rf "$HOME/.codex/skills/$name"
-  ln -s "$d" "$HOME/.codex/skills/$name"
-done
-```
+1. Clone the repository locally.
+2. Pick one series: `phi` or `faq`.
+3. Follow the Codex instructions in:
+   - `packages/phi/.codex/INSTALL.md`
+   - `packages/faq/.codex/INSTALL.md`
 
-Optional: mark the repository as trusted in `~/.codex/config.toml`:
+Update:
 
-```toml
-[projects."/home/YOUR_USER/phi-skills"]
-trust_level = "trusted"
-```
+1. `cd` into your local `phi-skills` clone.
+2. Run `git pull`.
+3. Restart Codex if it has already loaded the old skill set.
 
-To verify the installation:
-
-```bash
-ls -1 ~/.codex/skills | grep '^phi-'
-```
-
-To update later:
-
-```bash
-cd ~/phi-skills
-git pull
-```
+Because the Codex setup uses symlinks into the repository, a pull updates the installed series in place.
 
 ### Claude Code
 
-For Claude Code, use the plugin marketplace flow instead of manual skill linking.
+Add this repository as a marketplace source, then enable the plugin for the series you want.
 
-Add this repository as a marketplace source, then enable the plugin:
+Example:
 
 ```json
 {
   "extraKnownMarketplaces": {
-    "phi": {
+    "phi-skills": {
       "source": {
         "source": "github",
         "repo": "re0phimes/phi-skills"
@@ -106,23 +98,48 @@ Add this repository as a marketplace source, then enable the plugin:
     }
   },
   "enabledPlugins": {
-    "phi@phi": true
+    "phi@phi-skills": true,
+    "faq@phi-skills": false
   }
 }
 ```
 
-If you prefer the command flow in Claude Code, the equivalent idea is to add the marketplace source first and then install/enable `phi@phi`.
+Enable:
+
+- `phi@phi-skills` for the `phi` series
+- `faq@phi-skills` for the `faq` series
+
+Update:
+
+1. Push the latest repository changes to GitHub.
+2. Restart Claude Code so it reloads marketplace metadata.
+3. If the old plugin state is still cached, disable and re-enable the plugin.
 
 ## Quickstart
 
-1. Install `phi` through your host-specific flow.
-2. Keep `superpowers` and ECC available as upstream sources.
-3. Prefer `phi-*` for daily work instead of calling upstream skills directly.
-4. Extend `phi` only when a workflow is stable and worth preserving locally.
+1. Choose the series you want to install.
+2. Follow the host-specific instructions in `packages/<series>/`.
+3. Keep `superpowers` and ECC available as upstream sources when using `phi`.
+4. Prefer `phi-*` for orchestration work and install `faq` when you need the concrete FAQ toolchain.
+
+## Validation
+
+Run the repository layout check after packaging changes:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\shared\scripts\validate-series-layout.ps1
+```
+
+## Reference
+
+- Series boundaries: `docs/series.md`
+- Machine-readable source metadata: `lib/source-manifest.json`
+- Approved design: `docs/plans/2026-03-12-multi-series-packaging-design.md`
+- Implementation plan: `docs/plans/2026-03-12-multi-series-packaging.md`
 
 ## Current Status
 
-This repository is a first implementation of the approved orchestration design saved in:
+This repository contains the first multi-series packaging pass for the approved orchestration design saved in:
 
 - `docs/plans/2026-03-09-phi-plugin-convergence-design.md`
 - `docs/plans/2026-03-09-phi-plugin-convergence.md`

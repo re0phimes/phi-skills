@@ -1,0 +1,12 @@
+{
+  "name": "faq",
+  "displayName": "FAQ",
+  "description": "Standalone FAQ generation, grounded review, and QA judging skill series",
+  "version": "0.1.0",
+  "author": {
+    "name": "re0ph"
+  },
+  "homepage": "https://github.com/re0phimes/phi-skills",
+  "license": "MIT",
+  "skills": "../../../skills/faq/"
+}
