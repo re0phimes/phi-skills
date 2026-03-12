@@ -1,0 +1,61 @@
+{
+  "version": "2026-03-12",
+  "series": "phi",
+  "batch": "workflow-backbone",
+  "grading_dimensions": [
+    "trigger_accuracy",
+    "routing_visibility",
+    "process_completeness",
+    "outcome_quality"
+  ],
+  "cases": [
+    {
+      "skill": "phi-brainstorming",
+      "with_skill_prompt": "phi-brainstorming I want to add a lightweight review queue to our FAQ workflow so editors can approve generated answers before publishing. Help me think through the design before we build it.",
+      "without_skill_prompt": "I want to add a lightweight review queue to our FAQ workflow so editors can approve generated answers before publishing. Help me think through the design before we build it.",
+      "assertions": [
+        "identified_design_stage",
+        "did_not_jump_to_implementation",
+        "asked_clarifying_questions_when_scope_was_incomplete",
+        "presented_options_with_tradeoffs",
+        "handed_off_to_phi_planning"
+      ]
+    },
+    {
+      "skill": "phi-planning",
+      "with_skill_prompt": "The design is approved. Use phi-planning to break the FAQ review queue into an implementation plan with file targets, validation, and handoff.",
+      "without_skill_prompt": "The design is approved. Break the FAQ review queue into an implementation plan with file targets, validation, and handoff.",
+      "assertions": [
+        "identified_planning_stage",
+        "produced_ordered_implementation_steps",
+        "included_file_targets_when_supported",
+        "included_validation_steps",
+        "named_next_stage_handoff"
+      ]
+    },
+    {
+      "skill": "phi-tdd",
+      "with_skill_prompt": "Use phi-tdd to add CSV export support to the Python CLI. I want a strict test-first flow.",
+      "without_skill_prompt": "Add CSV export support to the Python CLI. I want a strict test-first flow.",
+      "assertions": [
+        "started_with_failing_test",
+        "made_red_green_refactor_explicit",
+        "rejected_code_first_behavior",
+        "kept_implementation_minimal_until_green",
+        "handed_off_to_phi_verify"
+      ]
+    },
+    {
+      "skill": "phi-verify",
+      "with_skill_prompt": "The backend route change is done. Use phi-verify before we claim it is complete.",
+      "without_skill_prompt": "The backend route change is done. Before we claim it is complete, tell me what to verify.",
+      "assertions": [
+        "identified_final_verification_stage",
+        "asked_for_or_used_executed_evidence",
+        "did_not_claim_success_from_reasoning_alone",
+        "surfaced_missing_evidence",
+        "stated_completion_or_non_completion_clearly"
+      ]
+    }
+  ]
+}
